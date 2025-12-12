@@ -1,4 +1,4 @@
-import ForwardLink from "components/UI/ForwardLink";
+import ForwardLink from "@/components/UI/ForwardLink";
 import Link from "next/link";
 
 export default function DormitoryStaffDashboard() {
