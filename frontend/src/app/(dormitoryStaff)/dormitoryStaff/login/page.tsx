@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useActionState, useState } from "react";
 // import { useRouter } from "next/navigation";
@@ -24,7 +24,10 @@ const initialState: LoginState = {
 export default function DormitoryStaffLogin() {
     // const router = useRouter();
     const [showPassword, setShowPassword] = useState(false);
-    const [state, formAction, isPending] = useActionState(loginAction, initialState);
+    const [state, formAction, isPending] = useActionState(
+        loginAction,
+        initialState,
+    );
 
     // Redirect logic removed in favor of Server Action redirect
 
@@ -83,7 +86,9 @@ export default function DormitoryStaffLogin() {
                                 />
                                 <button
                                     type="button"
-                                    onClick={() => setShowPassword(!showPassword)}
+                                    onClick={() =>
+                                        setShowPassword(!showPassword)
+                                    }
                                     className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                                     tabIndex={-1}
                                 >

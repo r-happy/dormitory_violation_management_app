@@ -47,7 +47,7 @@ export async function loginAction(
 
         const mockToken = "mock-jwt-token-" + Date.now();
         const cookieStore = await cookies();
-        
+
         cookieStore.set("accessToken", mockToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
