@@ -2,6 +2,7 @@
 
 import { z } from "zod";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 // Zod schema for teacher login validation
 const loginSchema = z.object({
@@ -61,7 +62,6 @@ export async function loginAction(
             maxAge: rememberMe ? 60 * 60 * 24 * 30 : 60 * 60 * 24,
         });
 
-        return { success: true };
     } catch (error) {
         return {
             errors: {
@@ -69,4 +69,6 @@ export async function loginAction(
             },
         };
     }
+
+    redirect("/teacher/dashboard");
 }

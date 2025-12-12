@@ -85,7 +85,6 @@ export async function loginAction(
             maxAge: rememberMe ? 60 * 60 * 24 * 30 : 60 * 60 * 24,
         });
 
-        return { success: true };
     } catch (error) {
         return {
             errors: {
@@ -93,4 +92,6 @@ export async function loginAction(
             },
         };
     }
+
+    redirect("/dormitoryStaff/dashboard");
 }

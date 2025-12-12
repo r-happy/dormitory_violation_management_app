@@ -1,7 +1,7 @@
 "use client"
 
 import { useActionState, useState } from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { loginAction, type LoginState } from "./actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,14 +22,11 @@ const initialState: LoginState = {
 };
 
 export default function DormitoryStaffLogin() {
-    const router = useRouter();
+    // const router = useRouter();
     const [showPassword, setShowPassword] = useState(false);
     const [state, formAction, isPending] = useActionState(loginAction, initialState);
 
-    // Redirect on successful login
-    if (state.success) {
-        router.push("/dormitoryStaff/dashboard");
-    }
+    // Redirect logic removed in favor of Server Action redirect
 
     return (
         <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 p-4">

@@ -2,6 +2,7 @@
 
 import { z } from "zod";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 // Zod schema for signup validation
 const signupSchema = z.object({
@@ -97,7 +98,6 @@ export async function signupAction(
             maxAge: 60 * 60 * 24,
         });
 
-        return { success: true };
     } catch (error) {
         return {
             errors: {
@@ -105,4 +105,6 @@ export async function signupAction(
             },
         };
     }
+
+    redirect("/dormitoryStaff/dashboard");
 }

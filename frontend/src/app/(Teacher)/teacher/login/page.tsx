@@ -1,7 +1,7 @@
 "use client"
 
 import { useActionState, useState } from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { loginAction, type LoginState } from "./actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,13 +15,11 @@ const initialState: LoginState = {
 };
 
 export default function TeacherLogin() {
-    const router = useRouter();
+    // const router = useRouter();
     const [showPassword, setShowPassword] = useState(false);
     const [state, formAction, isPending] = useActionState(loginAction, initialState);
 
-    if (state.success) {
-        router.push("/teacher/dashboard");
-    }
+    // Client-side redirect removed
 
     return (
         <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-yellow-50 p-4">
